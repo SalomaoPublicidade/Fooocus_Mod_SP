@@ -5,7 +5,7 @@
     "default_loras": [
         [
             true,
-            "light_contour_sdxl.safetensors,
+            "light_contour_sdxl.safetensors",
             1.1
         ],
         [

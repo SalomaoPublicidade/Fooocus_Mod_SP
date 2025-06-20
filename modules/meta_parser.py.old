@@ -58,36 +58,7 @@ def load_parameter_button_click(raw_metadata: dict | str, is_generating: bool, i
 
     results.append(gr.update(visible=False))
 
-    # FreeU fields direct mapping
-    results.append(loaded_parameter_dict.get('freeu_enabled', False))
-    results.append(loaded_parameter_dict.get('freeu_b1', 1.01))
-    results.append(loaded_parameter_dict.get('freeu_b2', 1.02))
-    results.append(loaded_parameter_dict.get('freeu_s1', 0.99))
-    results.append(loaded_parameter_dict.get('freeu_s2', 0.95))
-
-    # Inpaint fields direct mapping
-    results.append(loaded_parameter_dict.get('inpaint_method', modules.config.default_inpaint_method))
-    results.append(loaded_parameter_dict.get('inpaint_advanced_masking_checkbox', modules.config.default_inpaint_advanced_masking_checkbox))
-    results.append(loaded_parameter_dict.get('inpaint_engine_version', modules.config.default_inpaint_engine_version))
-    results.append(loaded_parameter_dict.get('invert_mask_checkbox', modules.config.default_invert_mask_checkbox))
-    results.append(loaded_parameter_dict.get('inpaint_mask_model', modules.config.default_inpaint_mask_model))
-    results.append(loaded_parameter_dict.get('inpaint_mask_cloth_category', modules.config.default_inpaint_mask_cloth_category))
-    results.append(loaded_parameter_dict.get('inpaint_mask_sam_model', modules.config.default_inpaint_mask_sam_model))
-    results.append(loaded_parameter_dict.get('sam_max_detections', modules.config.default_sam_max_detections))
-
-    # ControlNet fields direct mapping
-    results.append(loaded_parameter_dict.get('controlnet_image_count', modules.config.default_controlnet_image_count))
-    results.append(loaded_parameter_dict.get('ip_images', modules.config.default_ip_images))
-    results.append(loaded_parameter_dict.get('ip_types', modules.config.default_ip_types))
-    results.append(loaded_parameter_dict.get('ip_stop_ats', modules.config.default_ip_stop_ats))
-    results.append(loaded_parameter_dict.get('ip_weights', modules.config.default_ip_weights))
-
-    # ControlNet Debug/Advanced fields direct mapping
-    results.append(loaded_parameter_dict.get('controlnet_softness', 0.25))
-    results.append(loaded_parameter_dict.get('debugging_cn_preprocessor', False))
-    results.append(loaded_parameter_dict.get('skipping_cn_preprocessor', False))
-    results.append(loaded_parameter_dict.get('mixing_image_prompt_and_vary_upscale', False))
-    results.append(loaded_parameter_dict.get('mixing_image_prompt_and_inpaint', False))
+    get_freeu('freeu', 'FreeU', loaded_parameter_dict, results)
 
     # prevent performance LoRAs to be added twice, by performance and by lora
     performance_filename = None

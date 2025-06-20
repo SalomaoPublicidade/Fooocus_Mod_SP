@@ -754,40 +754,6 @@ possible_preset_keys = {
     "default_inpaint_engine_version": "inpaint_engine_version",
 }
 
-# Add FreeU, Inpaint, and ControlNet keys to possible_preset_keys for preset export/import
-possible_preset_keys.update({
-    # FreeU
-    "freeu_enabled": "freeu_enabled",
-    "freeu_b1": "freeu_b1",
-    "freeu_b2": "freeu_b2",
-    "freeu_s1": "freeu_s1",
-    "freeu_s2": "freeu_s2",
-    # Inpaint
-    "default_inpaint_method": "inpaint_method",
-    "default_inpaint_advanced_masking_checkbox": "inpaint_advanced_masking_checkbox",
-    "default_inpaint_engine_version": "inpaint_engine_version",
-    "default_invert_mask_checkbox": "invert_mask_checkbox",
-    "default_inpaint_mask_model": "inpaint_mask_model",
-    "default_inpaint_mask_cloth_category": "inpaint_mask_cloth_category",
-    "default_inpaint_mask_sam_model": "inpaint_mask_sam_model",
-    "default_sam_max_detections": "sam_max_detections",
-    # ControlNet (control)
-    "default_controlnet_image_count": "controlnet_image_count",
-    "default_ip_images": "ip_images",
-    "default_ip_types": "ip_types",
-    "default_ip_stop_ats": "ip_stop_ats",
-    "default_ip_weights": "ip_weights",
-})
-
-# Add ControlNet Debug/Advanced keys to possible_preset_keys for preset export/import
-possible_preset_keys.update({
-    "controlnet_softness": "controlnet_softness",
-    "debugging_cn_preprocessor": "debugging_cn_preprocessor",
-    "skipping_cn_preprocessor": "skipping_cn_preprocessor",
-    "mixing_image_prompt_and_vary_upscale": "mixing_image_prompt_and_vary_upscale",
-    "mixing_image_prompt_and_inpaint": "mixing_image_prompt_and_inpaint"
-})
-
 REWRITE_PRESET = False
 
 if REWRITE_PRESET and isinstance(args_manager.args.preset, str):
